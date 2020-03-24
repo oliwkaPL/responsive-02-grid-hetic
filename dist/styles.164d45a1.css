@@ -143,6 +143,14 @@ img {
 
 .el {
   background-color: lightgrey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  font-family: Arial;
+}
+.el__symbol {
+  font-size: 20px;
 }
 
 .el--alkaliMetal {
@@ -179,6 +187,14 @@ img {
 
 .el--otherNonMetal {
   background-color: #ebadad;
+}
+
+body {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(105px, 1fr));
+  grid-gap: 5px;
+  grid-auto-rows: 120px;
+  padding: 5px;
 }
 
 /*# sourceMappingURL=/styles.164d45a1.css.map */
