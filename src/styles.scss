@@ -22,10 +22,14 @@ img {
 
 $types: alkaliMetal lanthanide nobleGas transitionMetal postTransitionMetal
   alkalineEarthMetal actinide metalloid otherNonMetal;
+$length: length($types);
+$step: 360deg / $length; //length vaut 9//
 
 @each $type in $types {
   .el--#{$type} {
-    background-color: hsl(index($types, $type) * 40, 60, 80);
+    $index: index($types, $type);
+
+    background-color: hsl($step * $index, 50%, 65%);
   }
 }
 
