@@ -17,6 +17,10 @@ img {
   font-family: Arial;
   &__symbol {
     font-size: 20px;
+    font-weight: bold;
+  }
+  &__name {
+    font-size: 10px;
   }
 }
 
@@ -24,12 +28,6 @@ $types: alkaliMetal lanthanide nobleGas transitionMetal postTransitionMetal
   alkalineEarthMetal actinide metalloid otherNonMetal;
 $length: length($types);
 $step: 360deg / $length; //length vaut 9//
-
-@mixin classicTable {
-  @media (min-width: 1400px) {
-    @content;
-  }
-}
 
 @each $type in $types {
   .el--#{$type} {
@@ -39,23 +37,27 @@ $step: 360deg / $length; //length vaut 9//
   }
 }
 
+@for $i from 1 through 7 {
+  [data-period="#{$i}"] {
+    grid-row: $i;
+  }
+}
+
+@for $i from 1 through 18 {
+  [data-group="#{$i}"] {
+    grid-column: $i;
+  }
+}
+
 body {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(105px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   grid-gap: 5px;
-  grid-auto-rows: 120px;
+  grid-auto-rows: 100px;
   padding: 5px;
 
-  @include classicTable {
-    grid-template-columns: repeat(18, minmax(50px, 1fr));
-  }
-  &__symbol {
-    font-weight: bold;
-  }
-
-  &__name {
-    @include classicTable {
-      font-size: 10px;
-    }
+  @media (min-width: 1400px) {
+    grid-template-columns: repeat(18, 1fr);
+    grid-template-rows: repeat(7, 1fr);
   }
 }
