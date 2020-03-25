@@ -196,5 +196,18 @@ body {
   grid-auto-rows: 120px;
   padding: 5px;
 }
+@media (min-width: 1400px) {
+  body {
+    grid-template-columns: repeat(18, minmax(50px, 1fr));
+  }
+}
+body__symbol {
+  font-weight: bold;
+}
+@media (min-width: 1400px) {
+  body__name {
+    font-size: 10px;
+  }
+}
 
 /*# sourceMappingURL=/styles.164d45a1.css.map */

@@ -25,6 +25,12 @@ $types: alkaliMetal lanthanide nobleGas transitionMetal postTransitionMetal
 $length: length($types);
 $step: 360deg / $length; //length vaut 9//
 
+@mixin classicTable {
+  @media (min-width: 1400px) {
+    @content;
+  }
+}
+
 @each $type in $types {
   .el--#{$type} {
     $index: index($types, $type);
@@ -39,4 +45,17 @@ body {
   grid-gap: 5px;
   grid-auto-rows: 120px;
   padding: 5px;
+
+  @include classicTable {
+    grid-template-columns: repeat(18, minmax(50px, 1fr));
+  }
+  &__symbol {
+    font-weight: bold;
+  }
+
+  &__name {
+    @include classicTable {
+      font-size: 10px;
+    }
+  }
 }
